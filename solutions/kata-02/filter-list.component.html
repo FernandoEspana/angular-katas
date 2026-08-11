@@ -1,0 +1,7 @@
+<input type="text" data-testid="filter-input" [(ngModel)]="query" placeholder="Filter..." />
+
+<ul>
+  <li *ngFor="let f of visible; trackBy: trackByName" data-testid="item">{{ f }}</li>
+</ul>
+
+<p *ngIf="visible.length === 0" data-testid="empty-message">No results</p>

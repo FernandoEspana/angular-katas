@@ -1,0 +1,15 @@
+<ul>
+  <li *ngFor="let person of people; let i = index; trackBy: trackByIndex" data-testid="item">
+    <ng-container *ngIf="editingIndex === i; else readMode">
+      <input type="text" data-testid="edit-input" [(ngModel)]="draft" />
+      <button type="button" data-testid="save-btn" (click)="save()">Save</button>
+      <button type="button" data-testid="cancel-btn" (click)="cancel()">Cancel</button>
+    </ng-container>
+
+    <ng-template #readMode>
+      <span data-testid="item-name">{{ person }}</span>
+      <button type="button" data-testid="edit-btn" (click)="startEdit(i)">Edit</button>
+      <button type="button" data-testid="delete-btn" (click)="remove(i)">Delete</button>
+    </ng-template>
+  </li>
+</ul>

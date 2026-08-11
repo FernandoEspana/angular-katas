@@ -1,0 +1,19 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label>
+    Email
+    <input type="email" data-testid="email" formControlName="email" />
+  </label>
+  <p *ngIf="showError('email')" data-testid="email-error">Invalid email</p>
+
+  <label>
+    Password
+    <input type="password" data-testid="password" formControlName="password" />
+  </label>
+  <p *ngIf="showError('password')" data-testid="password-error">Password too short</p>
+
+  <button type="submit" data-testid="submit-btn" [disabled]="form.invalid">
+    Sign up
+  </button>
+</form>
+
+<p *ngIf="submitted" data-testid="success">Welcome</p>

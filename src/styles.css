@@ -1,0 +1,8 @@
+/* Estilos mínimos a propósito.
+   Los tests solo consultan atributos data-testid, nunca clases ni estilos.
+   No inviertas tiempo en CSS durante un kata: no suma puntos. */
+body { font-family: system-ui, sans-serif; margin: 2rem; line-height: 1.5; }
+input, button { font: inherit; padding: 0.35rem 0.5rem; }
+ul { padding-left: 1.2rem; }
+section { margin-bottom: 2.5rem; }
+h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; color: #555; }

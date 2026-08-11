@@ -1,0 +1,6 @@
+<input type="text" data-testid="name-input" [(ngModel)]="name" (keyup.enter)="addName()" />
+<button type="button" data-testid="add-btn" [disabled]="isDisabled" (click)="addName()">Add</button>
+
+<ul>
+  <li *ngFor="let n of names; trackBy: trackByIndex" data-testid="name-item">{{ n }}</li>
+</ul>
