@@ -52,7 +52,7 @@ if (command === 'solve') {
 if (command === 'test') {
   const result = spawnSync(
     'npx',
-    ['ng', 'test', '--watch=false', '--browsers=ChromeHeadless', `--include=**/${kata.dir}/**`],
+    ['ng', 'test', '--watch=false', '--browsers=ChromeHeadless', `--include=**/${kata.dir}/**/*.spec.ts`],
     { stdio: 'inherit', cwd: ROOT, shell: process.platform === 'win32' }
   );
   process.exit(result.status ?? 1);

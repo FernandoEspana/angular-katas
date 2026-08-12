@@ -3,3 +3,16 @@
      - item    -> data-testid="item"
      - vacío   -> data-testid="empty-message" con el texto "No results"
 -->
+<input data-testid="filter-input" [(ngModel)]="query"/>
+
+<div *ngIf="visible.length > 0; else vacio">
+     <ul>
+     <li *ngFor="let framework of visible"data-testid="item">
+          {{framework}}
+     </li>
+</ul>
+</div>
+
+<ng-template #vacio>
+     <p data-testid="empty-message">No results</p>
+</ng-template>

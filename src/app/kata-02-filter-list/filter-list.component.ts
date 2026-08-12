@@ -10,6 +10,11 @@ export class FilterListComponent {
 
   // TODO: devuelve solo los frameworks que coinciden con query.
   get visible(): string[] {
-    return [];
+    console.log(this.query);
+    const searchNames = (list: string[], criteria: string): string[] => {
+      return list.filter(n => n.toLocaleLowerCase().includes(criteria.toLocaleLowerCase()));
+    }
+
+    return searchNames(this.frameworks, this.query);
   }
 }

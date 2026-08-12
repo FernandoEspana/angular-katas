@@ -3,3 +3,10 @@
      - button -> data-testid="add-btn"
      - item   -> data-testid="name-item"
 -->
+<input #nameRef [(ngModel)]="name" data-testid="name-input" placeholder="Add name"/>
+<button data-testid="add-btn" [disabled]="isDisabled" (click)="addName(nameRef)">Add</button>
+<ul>
+     <li *ngFor="let name of names, index as i" data-testid="name-item" >
+          {{name}}
+     </li>
+</ul>

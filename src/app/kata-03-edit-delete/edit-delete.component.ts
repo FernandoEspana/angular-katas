@@ -5,19 +5,32 @@ import { Component } from '@angular/core';
   templateUrl: './edit-delete.component.html',
 })
 export class EditDeleteComponent {
-  people: string[] = ['Ada', 'Grace', 'Linus'];
+  people: string[] = ['Ada', 'Grace', 'Linus', 'Steve', 'Wosniak'];
   editingIndex = -1;
   draft = '';
 
   // TODO
-  startEdit(index: number): void {}
+  startEdit(index: number): void {
+    this.editingIndex = index;
+    this.draft = this.people[index];
+  }
 
   // TODO
-  save(): void {}
+  save(): void {
+    console.log(this.editingIndex);
+    if(this.draft.trim() !== '') {
+      this.people[this.editingIndex] = this.draft;
+    }
+    this.editingIndex = -1;
+  }
 
   // TODO
-  cancel(): void {}
+  cancel(): void {
+    this.editingIndex = -1;
+  }
 
   // TODO
-  remove(index: number): void {}
+  remove(index: number): void {
+    this.people.splice(index,1);
+  }
 }
