@@ -71,7 +71,6 @@ describe('Kata 05 — HttpClient', () => {
   it('hace un GET a la URL correcta al inicializar', () => {
     fixture.detectChanges();
     const req = httpMock.expectOne(USERS_URL);
-    console.log('el request->', req);
     expect(req.request.method).toBe('GET');
     req.flush(envelope);
   });

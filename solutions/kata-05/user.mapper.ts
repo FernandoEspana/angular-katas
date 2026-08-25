@@ -2,13 +2,15 @@ import { HackerRankUser } from './hackerrank.interfaces';
 import { User } from './users.service';
 
 export class UserMapper {
-  // TODO: traduce un usuario de la API al modelo de dominio.
   static toUser(hackerRankUser: HackerRankUser): User {
-    return {} as User;
+    return {
+      id: hackerRankUser.id,
+      username: hackerRankUser.username,
+      about: hackerRankUser.about,
+    };
   }
 
-  // TODO: aplica toUser a todo el array.
   static toUserList(hackerRankUsers: HackerRankUser[]): User[] {
-    return [];
+    return hackerRankUsers.map((user) => UserMapper.toUser(user));
   }
 }

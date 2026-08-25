@@ -8,7 +8,7 @@ import { User, UsersService } from './users.service';
     <p *ngIf="error" data-testid="error">Something went wrong</p>
 
     <ul>
-      <li *ngFor="let u of users; trackBy: trackById" data-testid="row">{{ u.name }}</li>
+      <li *ngFor="let u of users; trackBy: trackById" data-testid="row">{{ u.username }}</li>
     </ul>
   `,
 })
