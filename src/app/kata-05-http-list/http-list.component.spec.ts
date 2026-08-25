@@ -17,9 +17,36 @@ describe('Kata 05 — HttpClient', () => {
     total: 3,
     total_pages: 1,
     data: [
-      { id: 1, name: 'Ada', role: 'Engineer' },
-      { id: 2, name: 'Grace', role: 'Admiral' },
-      { id: 3, name: 'Linus', role: 'Architect' },
+      {
+        id: 1,
+        username: 'ada',
+        about: 'Engineer',
+        submitted: 1500000000,
+        updated_at: 1500000000,
+        submission_count: 3,
+        comment_count: 1,
+        created_at: 1400000000,
+      },
+      {
+        id: 2,
+        username: 'grace',
+        about: 'Admiral',
+        submitted: 1500000001,
+        updated_at: 1500000001,
+        submission_count: 5,
+        comment_count: 2,
+        created_at: 1400000001,
+      },
+      {
+        id: 3,
+        username: 'linus',
+        about: 'Architect',
+        submitted: 1500000002,
+        updated_at: 1500000002,
+        submission_count: 7,
+        comment_count: 4,
+        created_at: 1400000002,
+      },
     ],
   };
 
@@ -44,6 +71,7 @@ describe('Kata 05 — HttpClient', () => {
   it('hace un GET a la URL correcta al inicializar', () => {
     fixture.detectChanges();
     const req = httpMock.expectOne(USERS_URL);
+    console.log('el request->', req);
     expect(req.request.method).toBe('GET');
     req.flush(envelope);
   });
@@ -59,7 +87,7 @@ describe('Kata 05 — HttpClient', () => {
     fixture.detectChanges();
     httpMock.expectOne(USERS_URL).flush(envelope);
     fixture.detectChanges();
-    expect(rows()).toEqual(['Ada', 'Grace', 'Linus']);
+    expect(rows()).toEqual(['ada', 'grace', 'linus']);
   });
 
   it('oculta el indicador de carga tras la respuesta', () => {
